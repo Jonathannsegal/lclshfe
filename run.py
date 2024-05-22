@@ -9,8 +9,11 @@ simulation. This should be the only file that is run.
   sim.stats('fnc_ond1_tanh_false_cog_false_30mins/1659488027.688672', 'functional_acuity')
   sim.display(sim.jig(sim.overrides.fnc1_ond_tanh_false_cog_false, True, 'noticing_delay'), 'noticing_delay')
 """
+
 import sys
 import sim
+from sim.model import functions, settings
+
 
 def main() -> int:
     """Run the Jig"""
@@ -22,14 +25,26 @@ def main() -> int:
     # sim.jig(sim.overrides.fa_05, True, 'functional_acuity')
     # sim.jig(sim.overrides.fa_10, True, 'functional_acuity')
 
-
-
     # TODO: Fix Suppressed
     # sim.jig(sim.overrides.default, True, 'noticing_delay')
-    sim.jig(sim.overrides.ADJ_True_Stop_True, True, 'noticing_delay')
-    # sim.jig(sim.overrides.ADJ_False_Stop_True, True, 'noticing_delay')
-    # sim.jig(sim.overrides.ADJ_True_Stop_False, True, 'noticing_delay')
-    # sim.jig(sim.overrides.ADJ_False_Stop_False, True, 'noticing_delay')
+
+    # config = settings.Config(sim.overrides.ADJ_True_Stop_False)
+    # with open(
+    #     "results/ADJ_True_Stop_False_10/1713233005.930955/dictionaries/runs.dictionary",
+    #     encoding="utf-8",
+    # ) as f:
+    #     runs = f.read()
+    # functions.write_summary_file(config, "1713233005.930955", runs, "noticing_delay")
+
+    # sim.jig(sim.overrides.ADJ_True_Stop_True, True, "noticing_delay")
+    # sim.jig(sim.overrides.ADJ_False_Stop_True, True, "noticing_delay")
+    # sim.jig(sim.overrides.ADJ_True_Stop_False, True, "noticing_delay")
+    # sim.jig(sim.overrides.ADJ_False_Stop_False_nd, True, "noticing_delay")
+    # sim.jig(sim.overrides.ADJ_False_Stop_False, True, "noticing_delay")
+
+    # sim.jig(sim.overrides.Natural_Sample_Order, True, "noticing_delay")
+    sim.display("Natural_Sample_Order/1716401997.2470589", "noticing_delay")
+
     # sim.jig(sim.overrides.TF, True, 'noticing_delay')
     # sim.jig(sim.overrides.FT, True, 'noticing_delay')
     # sim.jig(sim.overrides.FF, True, 'noticing_delay')
@@ -38,13 +53,21 @@ def main() -> int:
     # sim.stats('Poster1/1659637732.51549', 'noticing_delay')
     # sim.stats('Poster2/1659638382.7977269', 'noticing_delay')
     # sim.stats('Poster3/1659726202.022182', 'noticing_delay')
-    # sim.display('fnc_ond1_tanh_false_cog_false/1658879734.700448', 'functional_acuity')
 
-    # sim.display('mar12/1710275813.543448', 'functional_acuity')
+    # sim.display("ADJ_True_Stop_True_10_nd/1713245116.683425", "noticing_delay")
+    # sim.display("ADJ_True_Stop_False_10_nd/1713245338.697033", "noticing_delay")
+    # sim.display("ADJ_False_Stop_True_10_nd/1713245221.048518", "noticing_delay")
+    # sim.display("ADJ_False_Stop_False_10_nd/1713245746.715221", "noticing_delay")
+
+    # sim.display("ADJ_False_Stop_True_10/1713218681.2422779", "noticing_delay")
+    # sim.display("ADJ_True_Stop_True_10/1713217808.054794", "noticing_delay")
+
+    # sim.display('ADJ_False_Stop_True_10/1712693925.77318', 'noticing_delay')
     # sim.stats('fnc_ond1_tanh_false_cog_false_30mins_for_tomorow/1659508987.5486', 'functional_acuity')
     return 0
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     sys.exit(main())
 
 # III: If PQ Delta is 0 divide by 0 error
@@ -66,12 +89,6 @@ if __name__ == '__main__':
 # III: Timing Thing - Fix
 # III: Comments
 # III: Unit Tests
-
-
-
-
-
-
 
 
 # III: Data Analyst: Every cycle just store the error thresholds in an array. Just store them
